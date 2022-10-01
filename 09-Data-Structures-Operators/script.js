@@ -1,7 +1,5 @@
 'use strict';
-
-'use strict';
-
+/* 
 // Datos necesarios para un ejercicio posterior
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
@@ -62,19 +60,19 @@ const rest2 = {
   name: 'La piazza',
   owner: 'Cristian Rodriguez',
 }
-/* 
+
 OR opereador asisgancion
 rest1.numGuests = rest1.numGuests || 10;
 rest2.numGuests = rest2.numGuests || 10;
  
 rest1.numGuests ||= 10;
 rest2.numGuests ||= 10;
-*/
+
 rest1.numGuests ??= 10;
 rest2.numGuests ??= 10;
 
-/* rest1.owner = rest1.owner && '<ANONYMOUS>';
-rest2.owner = rest2.owner && '<ANONYMOUS>'; */
+ rest1.owner = rest1.owner && '<ANONYMOUS>';
+rest2.owner = rest2.owner && '<ANONYMOUS>'; 
 
 // AND assignment operator
 rest1.owner &&= '<ANONYMOUS>'
@@ -82,6 +80,7 @@ rest2.owner &&= '<ANONYMOUS>'
 
 console.log(rest1);
 console.log(rest2);
+ */
 
 /* 
 //! rest funcion ordenPizza
@@ -259,3 +258,79 @@ const str = 'cristian';
 const letters = [...str, 'r.', 'q.'];
 console.log(letters);
  */
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski',
+    'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+// Tarea 1
+const [players1, players2] = game.players;
+//console.log(players1, players2);
+
+// Tarea 2
+const [gk, ...fieldPlayers] = players1;
+//console.log(gk);
+//console.log(fieldPlayers);
+
+// Tarea 3
+const allPlayers = [...players1, ...players2];
+//console.log(allPlayers);
+
+//Tarea 4
+const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+//console.log(players1Final);
+
+//Tarea 5
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
+//console.log(team1, draw, team2);
+
+//Tarea 6
+const printGoals = function (...players) {
+  console.log(players);
+  console.log(`${players.length} goals were scored`);
+}
+
+printGoals(...game.scored);
+
+//Tarea 7
+team1 < team2 && console.log('Team 1 is more likely to win');
