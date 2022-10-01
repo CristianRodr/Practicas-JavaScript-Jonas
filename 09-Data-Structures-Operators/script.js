@@ -1,5 +1,5 @@
 'use strict';
-/* 
+
 // Datos necesarios para un ejercicio posterior
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
@@ -51,6 +51,15 @@ const restaurant = {
   },
 };
 
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+//for (const item of menu) //console.log(item);
+
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
+
+/*
 const rest1  = {
   name: 'Capri',
   numGuests: 0,
@@ -259,6 +268,12 @@ const letters = [...str, 'r.', 'q.'];
 console.log(letters);
  */
 
+/*
+Estructuras de datos, operadores modernos y cadenas
+Desafio de codificacion 1
+*/
+
+/* 
 const game = {
   team1: 'Bayern Munich',
   team2: 'Borrussia Dortmund',
@@ -333,4 +348,5 @@ const printGoals = function (...players) {
 printGoals(...game.scored);
 
 //Tarea 7
-team1 < team2 && console.log('Team 1 is more likely to win');
+team1 < team2 && console.log('Team 1 is more likely to win'); 
+*/
