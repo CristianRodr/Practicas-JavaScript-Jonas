@@ -59,7 +59,31 @@ const restaurant = {
   },
 };
 
-console.log(openingHours);
+/* 
+if (restaurant.openingHours && restaurant.
+  openingHours.lunes) console.log
+(restaurant.openingHours.Lunes.open);
+
+console.log(restaurant.openingHours.Lunes?.open); //! Error sin encadenamiento opcional
+ */
+/* 
+const days = ['Lunes', 'Martes', 'Miercoles', 'Jueves',
+'Viernes', 'Sabado', 'Domingo']
+
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? `close`; //operador de fucion para que el cero corrija
+  console.log(`El ${day}, abrimos en ${open}`);
+}
+ */
+//encadenamiento con metodo
+console.log(restaurant.order?.(0, 1) ?? 
+'El metodo no existe');
+console.log(restaurant.orderRisotto?.(0, 1) ??
+'El metodo no existe');
+
+const users = [{name: 'Jonas', email: 'hello@jonas'}];
+
+console.log(users[0]?.name ?? 'Usuario en el array');
 
 /* 
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
