@@ -59,7 +59,38 @@ const restaurant = {
   },
 };
 
+
+/*
+
+//Nombre de propiedades, Property NAMES
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+let openStr = `Nosotros estamos abiertos en ${properties.length} dia: `;
+
+for (const day of properties) {
+  openStr += `${day}, `;
+}
+console.log(openStr);
+
+//Property VALUES, VAORES de propiedad
+const values = Object.values(openingHours);
+console.log(values);
+
+// Entire object, Objeto Completo
+const entries = Object.entries(openingHours);
+//console.log(entries);
+
+for (const [key, { open, close }] of entries) {
+  console.log(`El ${key} abrimos a las ${open} y cerramos a las ${close}`);
+}
+*/
+
+
+
 //? operador valor nulo
+
+/*
 
 restaurant.numGuests = 0;
 const guests = restaurant.numGuests || 10;
@@ -67,6 +98,7 @@ console.log(guests);
 
 const guestsCorrect = restaurant.numGuests ?? 10;
 console.log(guestsCorrect);
+*/
 
 /* 
 if (restaurant.openingHours && restaurant.
@@ -85,6 +117,8 @@ for (const day of days) {
 }
  */
 //encadenamiento con metodo
+/*
+
 console.log(restaurant.order?.(0, 1) ?? 
 'El metodo no existe');
 console.log(restaurant.orderRisotto?.(0, 1) ??
@@ -93,6 +127,7 @@ console.log(restaurant.orderRisotto?.(0, 1) ??
 const users = [{name: 'Jonas', email: 'hello@jonas'}];
 
 console.log(users[0]?.name ?? 'Usuario en el array');
+*/
 
 /* 
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
@@ -394,3 +429,70 @@ printGoals(...game.scored);
 //Tarea 7
 team1 < team2 && console.log('Team 1 is more likely to win'); 
 */
+
+//conding challenge #2
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski',
+    'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+}
+
+/*
+const puntaje = [...game.scored];
+
+for (const [indice, scored] of puntaje.entries() ) {
+  console.log(`Gol ${indice + 1}: ${scored}`);
+}
+*/
+
+for (const [indice, scored] of game.scored.entries() ) {
+  console.log(`Gol ${indice + 1}: ${scored}`);
+}
+
+const observar = Object.entries(game.odds);
+
+
+let actualNum = 0;
+for (const [a, b] of observar) {
+  actualNum += b;
+  console.log(actualNum)
+}
+
+
