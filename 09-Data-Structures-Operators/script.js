@@ -474,25 +474,28 @@ const game = {
   },
 }
 
-/*
-const puntaje = [...game.scored];
-
-for (const [indice, scored] of puntaje.entries() ) {
-  console.log(`Gol ${indice + 1}: ${scored}`);
-}
-*/
-
+// Tarea 1
 for (const [indice, scored] of game.scored.entries() ) {
   console.log(`Gol ${indice + 1}: ${scored}`);
 }
 
-const observar = Object.entries(game.odds);
+// Tarea 2
+const odd = Object.values(game.odds);
+let iterador = 0;
 
-
-let actualNum = 0;
-for (const [a, b] of observar) {
-  actualNum += b;
-  console.log(actualNum)
+for (const number of odd) {
+  iterador += number;
 }
+const longitudOdds = odd.length;
+
+iterador /= longitudOdds;
+console.log(iterador);
+
+// Tarea 3
+for (const [team, odd] of Object.entries(game.odds)) {
+  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+  console.log(`Odd of ${teamStr} ${odd}`);
+}
+
 
 
