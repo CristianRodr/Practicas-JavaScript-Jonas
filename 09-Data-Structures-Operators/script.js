@@ -2,64 +2,69 @@
 
 // Datos necesarios para un ejercicio posterior
 const weekdays = ['Lunes', 'Martes', 'Miercoles', 'Jueves',
-'Viernes', 'Sabado', 'Domingo']
+    'Viernes', 'Sabado', 'Domingo']
 
 const openingHours = {
-  [weekdays[3]]: {
-    open: 12,
-    close: 22,
-  },
-  [weekdays[4]]: {
-    open: 11,
-    close: 23,
-  },
-  [weekdays[5]]: {
-    open: 0, // Open 24 hours
-    close: 24,
-  },
+    [weekdays[3]]: {
+        open: 12,
+        close: 22,
+    },
+    [weekdays[4]]: {
+        open: 11,
+        close: 23,
+    },
+    [weekdays[5]]: {
+        open: 0, // Open 24 hours
+        close: 24,
+    },
 }
 
 // Datos necesarios para la primera parte de la sección
 const restaurant = {
-  name: 'Classico Italiano',
-  location: 'Via Angelo Tavanti 23, Firenze, Italy',
-  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
-  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
-  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-  //? ES6 objeto mejorados
-  openingHours,
+    name: 'Classico Italiano',
+    location: 'Via Angelo Tavanti 23, Firenze, Italy',
+    categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+    starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+    mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+    //? ES6 objeto mejorados
+    openingHours,
 
-  /* 
-  order: function (entranteInicio, menuPrincipal) {
-    return [this.starterMenu[entranteInicio], this.mainMenu[menuPrincipal]];
-  },
- */
-  order(entranteInicio, menuPrincipal) {
-    return [this.starterMenu[entranteInicio], this.mainMenu[menuPrincipal]];
-  },
+    /*
+    order: function (entranteInicio, menuPrincipal) {
+      return [this.starterMenu[entranteInicio], this.mainMenu[menuPrincipal]];
+    },
+   */
+    order(entranteInicio, menuPrincipal) {
+        return [this.starterMenu[entranteInicio], this.mainMenu[menuPrincipal]];
+    },
 
-  entregaPedidos: function ({
-    entranteInicio,
-    menuPrincipal,
-    tiempo,
-    direccion,
-  }) {
-    console.log(`Orden recivida! ${this.starterMenu[entranteInicio]} y ${this.mainMenu[menuPrincipal]} sera entregado a ${direccion} 
-    a las ${tiempo} `);
-  },
+    entregaPedidos({ entranteInicio, menuPrincipal, tiempo, direccion}) {
+        console.log(`Orden recivida! ${this.starterMenu[entranteInicio]} y ${this.mainMenu[menuPrincipal]} sera entregado a ${direccion} a las ${tiempo} `);
+    },
 
-  //metodo para pedir solo pasata usando SPREAD{...pasta}
-  orderPasta: function (ing1, ing2, ing3) {
-    console.log(`Aquí está su deliciosa pasta con ${ing1}, ${ing2} y ${ing3}`);
-  },
+    //metodo para pedir solo pasata usando SPREAD{...pasta}
+    orderPasta: function (ing1, ing2, ing3) {
+        console.log(`Aquí está su deliciosa pasta con ${ing1}, ${ing2} y ${ing3}`);
+    },
 
-  ordenPizza: function (primerIngrediente, ...restoIngredientes) {
-    console.log(primerIngrediente);
-    console.log(restoIngredientes);
-  },
+    ordenPizza: function (primerIngrediente, ...restoIngredientes) {
+        console.log(primerIngrediente);
+        console.log(restoIngredientes);
+    },
 };
 
-
+const ordersSet = new Set([
+    'Pasta',
+    'Pizza',
+    'Pizza',
+    'Risoto',
+    'Pasta',
+    'Pizza'
+]);
+console.log(ordersSet);
+//console.log(ordersSet.size);
+console.log(ordersSet.has('Pizza'));
+console.log(ordersSet.has('Bread'));
 /*
 
 //Nombre de propiedades, Property NAMES
@@ -85,7 +90,6 @@ for (const [key, { open, close }] of entries) {
   console.log(`El ${key} abrimos a las ${open} y cerramos a las ${close}`);
 }
 */
-
 
 
 //? operador valor nulo
@@ -431,6 +435,7 @@ team1 < team2 && console.log('Team 1 is more likely to win');
 */
 
 //conding challenge #2
+/*
 
 const game = {
   team1: 'Bayern Munich',
@@ -475,11 +480,13 @@ const game = {
 }
 
 // Tarea 1
+console.log("Tarea 1");
 for (const [indice, scored] of game.scored.entries() ) {
   console.log(`Gol ${indice + 1}: ${scored}`);
 }
 
 // Tarea 2
+console.log("Tarea 2");
 const odd = Object.values(game.odds);
 let iterador = 0;
 
@@ -492,10 +499,12 @@ iterador /= longitudOdds;
 console.log(iterador);
 
 // Tarea 3
+console.log("Tarea 3");
 for (const [team, odd] of Object.entries(game.odds)) {
   const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
   console.log(`Odd of ${teamStr} ${odd}`);
 }
+*/
 
 
 
