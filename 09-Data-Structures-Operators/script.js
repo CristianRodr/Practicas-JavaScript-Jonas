@@ -62,11 +62,21 @@ const ordersSet = new Set([
     'Pizza'
 ]);
 console.log(ordersSet);
-//console.log(ordersSet.size);
-console.log(ordersSet.has('Pizza'));
-console.log(ordersSet.has('Bread'));
-/*
+ordersSet.add('Pan de Ajo');
+ordersSet.add('Pan de Ajo');
 
+for (const order of ordersSet) {
+    console.log(order);
+}
+
+const staff = ['Waiter', 'Chef', 'Waiter', 'Maneger', 'Chef', 'Waiter'];
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+
+console.log(new Set(['Waiter', 'Chef', 'Waiter', 'Maneger', 'Chef', 'Waiter']).size);
+
+console.log(new Set('CristianRodriguezQuintero').size);
+/*
 //Nombre de propiedades, Property NAMES
 const properties = Object.keys(openingHours);
 console.log(properties);
