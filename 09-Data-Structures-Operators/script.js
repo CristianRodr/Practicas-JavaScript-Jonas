@@ -1,58 +1,128 @@
 'use strict';
 
 // Datos necesarios para un ejercicio posterior
-const weekdays = ['Lunes', 'Martes', 'Miercoles', 'Jueves',
-    'Viernes', 'Sabado', 'Domingo']
+const weekdays = [
+  'Lunes',
+  'Martes',
+  'Miercoles',
+  'Jueves',
+  'Viernes',
+  'Sabado',
+  'Domingo',
+];
 
 const openingHours = {
-    [weekdays[3]]: {
-        open: 12,
-        close: 22,
-    },
-    [weekdays[4]]: {
-        open: 11,
-        close: 23,
-    },
-    [weekdays[5]]: {
-        open: 0, // Open 24 hours
-        close: 24,
-    },
-}
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekdays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [weekdays[5]]: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
 
 // Datos necesarios para la primera parte de la sección
 const restaurant = {
-    name: 'Classico Italiano',
-    location: 'Via Angelo Tavanti 23, Firenze, Italy',
-    categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
-    starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
-    mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-    //? ES6 objeto mejorados
-    openingHours,
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+  //? ES6 objeto mejorados
+  openingHours,
 
-    /*
+  /*
     order: function (entranteInicio, menuPrincipal) {
       return [this.starterMenu[entranteInicio], this.mainMenu[menuPrincipal]];
     },
    */
-    order(entranteInicio, menuPrincipal) {
-        return [this.starterMenu[entranteInicio], this.mainMenu[menuPrincipal]];
-    },
+  order(entranteInicio, menuPrincipal) {
+    return [this.starterMenu[entranteInicio], this.mainMenu[menuPrincipal]];
+  },
 
-    entregaPedidos({ entranteInicio, menuPrincipal, tiempo, direccion}) {
-        console.log(`Orden recivida! ${this.starterMenu[entranteInicio]} y ${this.mainMenu[menuPrincipal]} sera entregado a ${direccion} a las ${tiempo} `);
-    },
+  entregaPedidos({ entranteInicio, menuPrincipal, tiempo, direccion }) {
+    console.log(
+      `Orden recivida! ${this.starterMenu[entranteInicio]} y ${this.mainMenu[menuPrincipal]} sera entregado a ${direccion} a las ${tiempo} `
+    );
+  },
 
-    //metodo para pedir solo pasata usando SPREAD{...pasta}
-    orderPasta: function (ing1, ing2, ing3) {
-        console.log(`Aquí está su deliciosa pasta con ${ing1}, ${ing2} y ${ing3}`);
-    },
+  //metodo para pedir solo pasata usando SPREAD{...pasta}
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Aquí está su deliciosa pasta con ${ing1}, ${ing2} y ${ing3}`);
+  },
 
-    ordenPizza: function (primerIngrediente, ...restoIngredientes) {
-        console.log(primerIngrediente);
-        console.log(restoIngredientes);
-    },
+  ordenPizza: function (primerIngrediente, ...restoIngredientes) {
+    console.log(primerIngrediente);
+    console.log(restoIngredientes);
+  },
 };
 
+const question = new Map([
+  ['question', '¿Cuál es el mejor lenguaje de programación del mundo?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'correct 🥳'],
+  [false, 'Try again'],
+]);
+
+//console.log(question);
+
+//convertir object en mapa
+//console.log(Object.entries(openingHours));
+//const hoursMap = new Map(Object.entries(openingHours));
+//console.log(hoursMap);
+
+console.log(question.get('question'));
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Responder ${key}: ${value}`);
+}
+const responder = Number(prompt('Tu repuesta'));
+console.log(responder);
+
+console.log(question.get(question.get('correct') === responder));
+
+//convertir map en un array
+console.log([...question]);
+console.log([...question.keys()]);
+console.log([...question.values()]);
+/* 
+const rest = new Map();
+rest.set('name', 'Clasico Italiano');
+rest.set(1, 'Firenze, Italy');
+console.log(rest.set(2, 'Lisbon, Portugal'));
+
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open :D')
+  .set(false, 'We are closed :(');
+
+console.log(rest.get('name'));
+console.log(rest.get(true));
+console.log(rest.get(1));
+
+const time = 8;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+const arr = [1, 2];
+rest.set(arr, 'Test');
+rest.set(document.querySelector('h1'), 'Heading'); //? volviendo objeto
+console.log(rest.has('categories'));
+rest.delete(2);
+console.log(rest);
+console.log(rest.size);
+
+console.log(rest.get(arr));
+ */
+/* 
 const ordersSet = new Set([
     'Pasta',
     'Pizza',
@@ -75,7 +145,7 @@ console.log(staffUnique);
 
 console.log(new Set(['Waiter', 'Chef', 'Waiter', 'Maneger', 'Chef', 'Waiter']).size);
 
-console.log(new Set('CristianRodriguezQuintero').size);
+console.log(new Set('CristianRodriguezQuintero').size); */
 /*
 //Nombre de propiedades, Property NAMES
 const properties = Object.keys(openingHours);
@@ -100,7 +170,6 @@ for (const [key, { open, close }] of entries) {
   console.log(`El ${key} abrimos a las ${open} y cerramos a las ${close}`);
 }
 */
-
 
 //? operador valor nulo
 
@@ -515,6 +584,3 @@ for (const [team, odd] of Object.entries(game.odds)) {
   console.log(`Odd of ${teamStr} ${odd}`);
 }
 */
-
-
-
