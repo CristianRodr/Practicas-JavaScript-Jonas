@@ -62,6 +62,21 @@ const restaurant = {
   },
 };
 
+const gameEvents = new Map([
+  [17, '⚽ GOAL'],
+  [36, '🔁 Substitution'],
+  [47, '⚽ GOAL'],
+  [61, '🔁 Substitution'],
+  [64, '🔶 Yellow card'],
+  [69, '🔴 Red card'],
+  [70, '🔁 Substitution'],
+  [72, '🔁 Substitution'],
+  [76, '⚽ GOAL'],
+  [80, '⚽ GOAL'],
+  [92, '🔶 Yellow card'],
+]);
+
+/* 
 const question = new Map([
   ['question', '¿Cuál es el mejor lenguaje de programación del mundo?'],
   [1, 'C'],
@@ -71,14 +86,14 @@ const question = new Map([
   [true, 'correct 🥳'],
   [false, 'Try again'],
 ]);
-
+ */
 //console.log(question);
 
 //convertir object en mapa
 //console.log(Object.entries(openingHours));
 //const hoursMap = new Map(Object.entries(openingHours));
 //console.log(hoursMap);
-
+/* 
 console.log(question.get('question'));
 for (const [key, value] of question) {
   if (typeof key === 'number') console.log(`Responder ${key}: ${value}`);
@@ -92,6 +107,7 @@ console.log(question.get(question.get('correct') === responder));
 console.log([...question]);
 console.log([...question.keys()]);
 console.log([...question.values()]);
+ */
 /* 
 const rest = new Map();
 rest.set('name', 'Clasico Italiano');
