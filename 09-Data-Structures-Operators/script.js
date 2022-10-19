@@ -2,57 +2,147 @@
 
 // Datos necesarios para un ejercicio posterior
 const weekdays = ['Lunes', 'Martes', 'Miercoles', 'Jueves',
-    'Viernes', 'Sabado', 'Domingo']
+  'Viernes', 'Sabado', 'Domingo']
 
 const openingHours = {
-    [weekdays[3]]: {
-        open: 12,
-        close: 22,
-    },
-    [weekdays[4]]: {
-        open: 11,
-        close: 23,
-    },
-    [weekdays[5]]: {
-        open: 0, // Open 24 hours
-        close: 24,
-    },
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekdays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [weekdays[5]]: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
 }
 
 // Datos necesarios para la primera parte de la sección
 const restaurant = {
-    name: 'Classico Italiano',
-    location: 'Via Angelo Tavanti 23, Firenze, Italy',
-    categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
-    starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
-    mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-    //? ES6 objeto mejorados
-    openingHours,
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+  //? ES6 objeto mejorados
+  openingHours,
 
-    /*
-    order: function (entranteInicio, menuPrincipal) {
-      return [this.starterMenu[entranteInicio], this.mainMenu[menuPrincipal]];
-    },
-   */
-    order(entranteInicio, menuPrincipal) {
-        return [this.starterMenu[entranteInicio], this.mainMenu[menuPrincipal]];
-    },
+  /*
+  order: function (entranteInicio, menuPrincipal) {
+    return [this.starterMenu[entranteInicio], this.mainMenu[menuPrincipal]];
+  },
+ */
+  order(entranteInicio, menuPrincipal) {
+    return [this.starterMenu[entranteInicio], this.mainMenu[menuPrincipal]];
+  },
 
-    entregaPedidos({ entranteInicio, menuPrincipal, tiempo, direccion}) {
-        console.log(`Orden recivida! ${this.starterMenu[entranteInicio]} y ${this.mainMenu[menuPrincipal]} sera entregado a ${direccion} a las ${tiempo} `);
-    },
+  entregaPedidos({ entranteInicio, menuPrincipal, tiempo, direccion }) {
+    console.log(`Orden recivida! ${this.starterMenu[entranteInicio]} y ${this.mainMenu[menuPrincipal]} sera entregado a ${direccion} a las ${tiempo} `);
+  },
 
-    //metodo para pedir solo pasata usando SPREAD{...pasta}
-    orderPasta: function (ing1, ing2, ing3) {
-        console.log(`Aquí está su deliciosa pasta con ${ing1}, ${ing2} y ${ing3}`);
-    },
+  //metodo para pedir solo pasata usando SPREAD{...pasta}
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Aquí está su deliciosa pasta con ${ing1}, ${ing2} y ${ing3}`);
+  },
 
-    ordenPizza: function (primerIngrediente, ...restoIngredientes) {
-        console.log(primerIngrediente);
-        console.log(restoIngredientes);
-    },
+  ordenPizza: function (primerIngrediente, ...restoIngredientes) {
+    console.log(primerIngrediente);
+    console.log(restoIngredientes);
+  },
 };
 
+const gameEvents = new Map([
+  [17, '⚽ GOAL'],
+  [36, '🔁 Substitution'],
+  [47, '⚽ GOAL'],
+  [61, '🔁 Substitution'],
+  [64, '🔶 Yellow card'],
+  [69, '🔴 Red card'],
+  [70, '🔁 Substitution'],
+  [72, '🔁 Substitution'],
+  [76, '⚽ GOAL'],
+  [80, '⚽ GOAL'],
+  [92, '🔶 Yellow card'],
+]);
+
+// ejercicio 1
+const events = [...new Set(gameEvents.values())];
+console.log(events);
+
+// ejercicio 2
+gameEvents.delete(64);
+
+// ejercicio 3
+console.log(`An event happened, on average, every ${90 / gameEvents.size} minutes`);
+
+const time = [...gameEvents.keys()].pop();
+console.log(time);
+
+console.log(`An event happened, on average, every ${time / gameEvents.size} minutes`);
+
+for (const [min, event] of gameEvents) {
+  const half = min <= 45 ? "FIRST" : "SECOND";
+  console.log(`[${half} HALF] ${min}: ${event}`);
+}
+/*
+
+function filterArray(numbers, value) {
+    // Change code below this line
+    let pushArray = [];
+
+    for (let i = 0; i < numbers.length; i++) {
+       numbers[i];
+    }
+    return numbers;
+
+}
+console.log(filterArray([1, 2, 3, 4, 5], 3));
+console.log(filterArray([1, 2, 3, 4, 5], 4));
+console.log(filterArray([1, 2, 3, 4, 5], 5));
+console.log(filterArray([12, 24, 8, 41, 76], 38));
+*/
+
+
+/*
+
+function createArrayOfNumbers(min, max) {
+    const numbers = [];
+
+    // Change code below this line
+    for (let i = 0; i <= max; i++) {
+        if ((i >= min) && (i <= max )) {
+            numbers.push(i);
+        }
+    }
+    return numbers;
+    // Change code above this line
+}
+console.log(createArrayOfNumbers(3, 8));
+console.log(createArrayOfNumbers(14, 17));
+console.log(createArrayOfNumbers(29, 34));
+*/
+
+
+/*
+
+function findLongestWord(string) {
+    const secuenciaArray = string.split(" ");
+    let largo = string[0];
+
+    for (let i = 0; i < secuenciaArray.length; i++) {
+        if (largo.length < secuenciaArray[i].length) {
+            largo = secuenciaArray[i];
+        }
+    }
+    return largo;
+}
+
+console.log(findLongestWord("The quick brown fox jumped over the lazy dog"))
+*/
+
+/*
 const ordersSet = new Set([
     'Pasta',
     'Pizza',
@@ -75,7 +165,7 @@ console.log(staffUnique);
 
 console.log(new Set(['Waiter', 'Chef', 'Waiter', 'Maneger', 'Chef', 'Waiter']).size);
 
-console.log(new Set('CristianRodriguezQuintero').size);
+console.log(new Set('CristianRodriguezQuintero').size);*/
 /*
 //Nombre de propiedades, Property NAMES
 const properties = Object.keys(openingHours);
@@ -114,14 +204,14 @@ const guestsCorrect = restaurant.numGuests ?? 10;
 console.log(guestsCorrect);
 */
 
-/* 
+/*
 if (restaurant.openingHours && restaurant.
   openingHours.lunes) console.log
 (restaurant.openingHours.Lunes.open);
 
 console.log(restaurant.openingHours.Lunes?.open); //! Error sin encadenamiento opcional
  */
-/* 
+/*
 const days = ['Lunes', 'Martes', 'Miercoles', 'Jueves',
 'Viernes', 'Sabado', 'Domingo']
 
@@ -133,7 +223,7 @@ for (const day of days) {
 //encadenamiento con metodo
 /*
 
-console.log(restaurant.order?.(0, 1) ?? 
+console.log(restaurant.order?.(0, 1) ??
 'El metodo no existe');
 console.log(restaurant.orderRisotto?.(0, 1) ??
 'El metodo no existe');
@@ -143,7 +233,7 @@ const users = [{name: 'Jonas', email: 'hello@jonas'}];
 console.log(users[0]?.name ?? 'Usuario en el array');
 */
 
-/* 
+/*
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
 //for (const item of menu) //console.log(item);
@@ -166,7 +256,7 @@ const rest2 = {
 OR opereador asisgancion
 rest1.numGuests = rest1.numGuests || 10;
 rest2.numGuests = rest2.numGuests || 10;
- 
+
 rest1.numGuests ||= 10;
 rest2.numGuests ||= 10;
 
@@ -174,7 +264,7 @@ rest1.numGuests ??= 10;
 rest2.numGuests ??= 10;
 
  rest1.owner = rest1.owner && '<ANONYMOUS>';
-rest2.owner = rest2.owner && '<ANONYMOUS>'; 
+rest2.owner = rest2.owner && '<ANONYMOUS>';
 
 // AND assignment operator
 rest1.owner &&= '<ANONYMOUS>'
@@ -184,13 +274,13 @@ console.log(rest1);
 console.log(rest2);
  */
 
-/* 
+/*
 //! rest funcion ordenPizza
 restaurant.ordenPizza('chicharron', 'queso', 'arina', 'carne', 'cebolla');
 
 //! 1) Destructuracion
  */
-/* 
+/*
 //?  SPREAD, porque en el lado DERECHO de =
 const arr = [1, 2, ...[3, 4]];
 
@@ -199,7 +289,7 @@ const [a, b, ...otros] = [1, 2, 3, 4, 5, 6];
 console.log(a, b, otros);
  */
 
-/* 
+/*
 //? Otro ejemplo
 const [pizza, , risotto, ...otrosProductos] = [
   ...restaurant.mainMenu,
@@ -214,7 +304,7 @@ const { sat, ...diasSemana } = restaurant.openingHours;
 console.log(diasSemana);
 */
 
-/* 
+/*
 //! 2) Rest Funciones
 //? parametros de descanso
 
@@ -225,7 +315,7 @@ const add = function (...numeros) {
 add(1, 2);
 add(3, 4, 5, 6);
 add(7, 8, 9, 10, 11, 12);
- 
+
 const add = function (...numeros) {
   let suma = 0;
   for (let i = 0; i < numeros.length; i++) {
@@ -244,7 +334,7 @@ add(...x); //? llamamos a la funcion con spreed propagacion y la funcion en uso 
 //?  toma los nuemeros de la variable x.
 */
 
-/* 
+/*
 //quiero solicitar los ingredientes desde una ventana solicitud emergente
 //Ejamplo del mundo real objeto -> spred
 const ingredients = [
@@ -253,7 +343,7 @@ const ingredients = [
   prompt('¡hagamos pastas! ¿ingrediente 3?'),
 ];
 */
-/* 
+/*
 console.log(ingredients);
 
 restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]); //sin spred solucion
@@ -304,12 +394,12 @@ console.log(a, b);
 const {
   fri: { open: Q, close: L },
 } = openingHours;
-console.log(Q, L); 
+console.log(Q, L);
 */
 
 // Tarea de desestructuracion
 
-/* 
+/*
 const arr = [2, 3, 4];
 const a = arr[0];
 const b = arr[1];
@@ -366,7 +456,7 @@ Estructuras de datos, operadores modernos y cadenas
 Desafio de codificacion 1
 */
 
-/* 
+/*
 const game = {
   team1: 'Bayern Munich',
   team2: 'Borrussia Dortmund',
@@ -441,7 +531,7 @@ const printGoals = function (...players) {
 printGoals(...game.scored);
 
 //Tarea 7
-team1 < team2 && console.log('Team 1 is more likely to win'); 
+team1 < team2 && console.log('Team 1 is more likely to win');
 */
 
 //conding challenge #2
