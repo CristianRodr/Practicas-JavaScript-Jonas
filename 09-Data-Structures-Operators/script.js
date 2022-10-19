@@ -53,6 +53,9 @@ const restaurant = {
   },
 };
 
+
+
+/* 
 const gameEvents = new Map([
   [17, '⚽ GOAL'],
   [36, '🔁 Substitution'],
@@ -86,6 +89,7 @@ for (const [min, event] of gameEvents) {
   const half = min <= 45 ? "FIRST" : "SECOND";
   console.log(`[${half} HALF] ${min}: ${event}`);
 }
+ */
 /*
 
 function filterArray(numbers, value) {
